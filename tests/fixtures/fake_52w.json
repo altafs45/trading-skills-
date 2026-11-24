@@ -1,0 +1,14 @@
+{
+ "_note": "SYNTHETIC test data, FAKE",
+ "data": [
+  {
+   "symbol": "FAKEA",
+   "ltp": 104.9,
+   "new52WHL": 105.5,
+   "prev52WHL": 104,
+   "prevHLDate": "20-Nov-2026",
+   "pChange": 4.9,
+   "series": "EQ"
+  }
+ ]
+}

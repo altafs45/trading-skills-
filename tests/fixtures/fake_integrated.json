@@ -1,0 +1,68 @@
+[
+ {
+  "gfrsymbol": "FAKEA",
+  "gfrQuaterEnded": "30 Sep 2026",
+  "gfrAuditedUnaudited": "Audited",
+  "gfrConsolidated": "Consolidated",
+  "gfrTotalIncome": "1200",
+  "gfrProBefTax": "1",
+  "gfrNetProLoss": "120",
+  "gfrErnPerShare": "1.2",
+  "gfSystym": "23-Oct-2026 20:16"
+ },
+ {
+  "gfrsymbol": "FAKEA",
+  "gfrQuaterEnded": "30 Sep 2026",
+  "gfrAuditedUnaudited": "Audited",
+  "gfrConsolidated": "Standalone",
+  "gfrTotalIncome": "1000",
+  "gfrProBefTax": "1",
+  "gfrNetProLoss": "100",
+  "gfrErnPerShare": "1.0",
+  "gfSystym": "23-Oct-2026 20:16"
+ },
+ {
+  "gfrsymbol": "FAKEA",
+  "gfrQuaterEnded": "30 Jun 2026",
+  "gfrAuditedUnaudited": "Audited",
+  "gfrConsolidated": "Consolidated",
+  "gfrTotalIncome": "1100",
+  "gfrProBefTax": "1",
+  "gfrNetProLoss": "100",
+  "gfrErnPerShare": "1.0",
+  "gfSystym": "23-Oct-2026 20:16"
+ },
+ {
+  "gfrsymbol": "FAKEA",
+  "gfrQuaterEnded": "31 Mar 2026",
+  "gfrAuditedUnaudited": "Audited",
+  "gfrConsolidated": "Consolidated",
+  "gfrTotalIncome": "1000",
+  "gfrProBefTax": "1",
+  "gfrNetProLoss": "90",
+  "gfrErnPerShare": "0.9",
+  "gfSystym": "23-Oct-2026 20:16"
+ },
+ {
+  "gfrsymbol": "FAKEA",
+  "gfrQuaterEnded": "31 Dec 2025",
+  "gfrAuditedUnaudited": "Audited",
+  "gfrConsolidated": "Consolidated",
+  "gfrTotalIncome": "1000",
+  "gfrProBefTax": "1",
+  "gfrNetProLoss": "90",
+  "gfrErnPerShare": "0.9",
+  "gfSystym": "23-Oct-2026 20:16"
+ },
+ {
+  "gfrsymbol": "FAKEA",
+  "gfrQuaterEnded": "30 Sep 2025",
+  "gfrAuditedUnaudited": "Audited",
+  "gfrConsolidated": "Consolidated",
+  "gfrTotalIncome": "1000",
+  "gfrProBefTax": "1",
+  "gfrNetProLoss": "100",
+  "gfrErnPerShare": "1.0",
+  "gfSystym": "23-Oct-2026 20:16"
+ }
+]

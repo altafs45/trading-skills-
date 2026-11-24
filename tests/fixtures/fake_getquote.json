@@ -1,0 +1,53 @@
+{
+ "_note": "SYNTHETIC test data, FAKE",
+ "equityResponse": [
+  {
+   "orderBook": {
+    "lastPrice": 104.9
+   },
+   "metaData": {
+    "identifier": "FAKEAEQN",
+    "companyName": "Fake Alpha Limited",
+    "symbol": "FAKEA",
+    "series": "EQ",
+    "open": 101,
+    "dayHigh": 105.5,
+    "dayLow": 100.5,
+    "previousClose": 100,
+    "averagePrice": 103.2,
+    "closePrice": 104.9,
+    "pChange": 4.9
+   },
+   "tradeInfo": {
+    "totalTradedVolume": 120000,
+    "totalTradedValue": 12384000,
+    "lastPrice": 104.9,
+    "ffmc": 1000000000.0,
+    "faceValue": 5,
+    "deliveryToTradedQuantity": 50,
+    "totalMarketCap": 2000000000.0
+   },
+   "priceInfo": {
+    "yearHightDt": "03-Feb-2026 00:00:00",
+    "yearLowDt": "29-Sep-2026 00:00:00",
+    "yearHigh": 120,
+    "yearLow": 80,
+    "tickSize": 0.05,
+    "priceBand": "90.00-110.00"
+   },
+   "secInfo": {
+    "pdSectorInd": "NIFTY IT          ",
+    "pdSectorPe": "20.5",
+    "pdSymbolPe": "15.2",
+    "isSuspended": "Active",
+    "basicIndustry": "Fake Software",
+    "sector": "Information Technology",
+    "industryInfo": "IT - Software",
+    "indexList": [
+     "NIFTY 500"
+    ]
+   },
+   "lastUpdateTime": "23-Nov-2026 16:00:00"
+  }
+ ]
+}

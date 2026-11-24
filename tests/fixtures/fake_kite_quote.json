@@ -1,0 +1,49 @@
+{
+ "status": "success",
+ "_note": "SYNTHETIC FAKE",
+ "data": {
+  "NSE:FAKEA": {
+   "instrument_token": 900001,
+   "timestamp": "2026-11-23 15:29:59",
+   "last_trade_time": "2026-11-23 15:29:58",
+   "last_price": 104.9,
+   "volume": 120000,
+   "average_price": 103.2,
+   "net_change": 4.9,
+   "lower_circuit_limit": 90,
+   "upper_circuit_limit": 110,
+   "ohlc": {
+    "open": 101,
+    "high": 105.5,
+    "low": 100.5,
+    "close": 100
+   },
+   "depth": {
+    "buy": [
+     {
+      "price": 104.85,
+      "quantity": 10,
+      "orders": 1
+     }
+    ],
+    "sell": [
+     {
+      "price": 104.95,
+      "quantity": 5,
+      "orders": 1
+     }
+    ]
+   }
+  },
+  "NSE:FAKEBE-BE": {
+   "instrument_token": 900003,
+   "last_price": 10.3,
+   "ohlc": {
+    "open": 10,
+    "high": 10.4,
+    "low": 9.9,
+    "close": 10
+   }
+  }
+ }
+}

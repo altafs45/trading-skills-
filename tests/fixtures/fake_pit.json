@@ -1,0 +1,21 @@
+{
+ "_note": "SYNTHETIC test data, FAKE",
+ "acqNameList": [
+  "FAKE PERSON"
+ ],
+ "data": [
+  {
+   "acqName": "FAKE PERSON",
+   "personCategory": "Promoter Group",
+   "secType": "Equity Shares",
+   "secAcq": "1000",
+   "secVal": "100000",
+   "tdpTransactionType": "Sell",
+   "acqMode": "Market Sale",
+   "acqfromDt": "13-Nov-2026",
+   "acqtoDt": "13-Nov-2026",
+   "intimDt": "16-Nov-2026",
+   "afterAcqSharesPer": "1.2"
+  }
+ ]
+}

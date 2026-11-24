@@ -1,0 +1,18 @@
+[
+ {
+  "note": "FAKE",
+  "buyValue": "1000.00",
+  "category": "DII",
+  "date": "23-Nov-2026",
+  "netValue": "-250.50",
+  "sellValue": "1250.50"
+ },
+ {
+  "note": "FAKE",
+  "buyValue": "100",
+  "category": "FII/FPI",
+  "date": "23-Nov-2026",
+  "netValue": "50",
+  "sellValue": "50"
+ }
+]

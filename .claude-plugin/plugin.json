@@ -1,22 +1,14 @@
 {
-  "name": "day-trader-skill",
-  "description": "11 Claude skills for day trading: scan thousands of charts, track breaking news, time every entry and exit, and replay every outcome before you risk a dollar.",
-  "version": "2.0.0",
+  "name": "nse-day-trader",
+  "description": "12 Claude skills for NSE equity research and breakout tracking: scan every NSE stock from the daily bhavcopy, track breakouts live, analyze one stock end to end (technicals, filings, events, news, data-based scenarios, chart), time entries and exits, size, risk-check and ticket trades you place yourself.",
+  "version": "3.0.0",
   "author": {
-    "name": "Jake Schincariol",
-    "url": "https://opusjake.ai"
+    "name": "altafs45",
+    "url": "https://github.com/altafs45"
   },
-  "homepage": "https://github.com/Jakeschincariol/day-trader-skill",
-  "repository": "https://github.com/Jakeschincariol/day-trader-skill",
+  "homepage": "https://github.com/altafs45/trading-skills-",
+  "repository": "https://github.com/altafs45/trading-skills-",
   "license": "MIT",
-  "keywords": [
-    "claude-code",
-    "claude-skills",
-    "day-trading",
-    "stock-market",
-    "backtesting",
-    "opening-range-breakout",
-    "paper-trading"
-  ],
+  "keywords": ["claude-code", "claude-skills", "nse", "india", "stock-market", "breakout-scanner", "day-trading", "zerodha-kite", "technical-analysis"],
   "skills": "./"
 }

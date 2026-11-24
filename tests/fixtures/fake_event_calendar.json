@@ -1,0 +1,16 @@
+[
+ {
+  "symbol": "FAKEA",
+  "company": "Fake Alpha",
+  "purpose": "Financial Results",
+  "bm_desc": "FAKE results meeting",
+  "date": "30-Nov-2026"
+ },
+ {
+  "symbol": "FAKEA",
+  "company": "Fake Alpha",
+  "purpose": "Dividend",
+  "bm_desc": "FAKE",
+  "date": "12-Jul-2006"
+ }
+]

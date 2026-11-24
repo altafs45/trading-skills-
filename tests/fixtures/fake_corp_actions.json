@@ -1,0 +1,14 @@
+[
+ {
+  "symbol": "FAKEA",
+  "subject": "Dividend - Rs 6 Per Share",
+  "exDate": "05-Dec-2026",
+  "recDate": "05-Dec-2026"
+ },
+ {
+  "symbol": "FAKEA",
+  "subject": "Bonus 1:1",
+  "exDate": "01-Jan-2026",
+  "recDate": "-"
+ }
+]

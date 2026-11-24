@@ -1,18 +1,18 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "day-trader-skill",
-  "description": "The Day Trader skill pack for Claude: the Trader skill v2",
+  "name": "nse-day-trader",
+  "description": "NSE equity research and breakout tracker for Claude",
   "owner": {
-    "name": "Jake Schincariol",
-    "url": "https://opusjake.ai"
+    "name": "altafs45",
+    "url": "https://github.com/altafs45"
   },
   "plugins": [
     {
-      "name": "day-trader-skill",
-      "description": "Eleven Claude skills for day trading: a chart scanner, a news monitor, an entry timer, an exit planner, a time machine that replays 10,000 sessions, a risk manager, a budget manager, an order executor (paper by default, never without your yes), price alerts, an earnings analyst and a Pelosi tracker.",
+      "name": "nse-day-trader",
+      "description": "Twelve skills for NSE stocks: breakout scanner, news monitor, live tracker, one-stock analysis, results analyst, entry timer, exit planner, time machine, budget, risk manager, ticket-only order desk and price alerts. Never places orders.",
       "source": "./",
       "category": "productivity",
-      "homepage": "https://github.com/Jakeschincariol/day-trader-skill"
+      "homepage": "https://github.com/altafs45/trading-skills-"
     }
   ]
 }

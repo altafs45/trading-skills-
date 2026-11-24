@@ -1,0 +1,50 @@
+{
+ "chart": {
+  "result": [
+   {
+    "meta": {
+     "currency": "INR",
+     "symbol": "FAKEA.NS",
+     "note": "SYNTHETIC FAKE"
+    },
+    "timestamp": [
+     1795409100,
+     1795409400,
+     1795409700
+    ],
+    "indicators": {
+     "quote": [
+      {
+       "open": [
+        101,
+        null,
+        102
+       ],
+       "high": [
+        102,
+        null,
+        103
+       ],
+       "low": [
+        100.5,
+        null,
+        101.5
+       ],
+       "close": [
+        101.5,
+        null,
+        102.5
+       ],
+       "volume": [
+        5000,
+        null,
+        6000
+       ]
+      }
+     ]
+    }
+   }
+  ],
+  "error": null
+ }
+}

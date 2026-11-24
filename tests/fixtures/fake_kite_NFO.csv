@@ -1,0 +1,4 @@
+instrument_token,exchange_token,tradingsymbol,name,last_price,expiry,strike,tick_size,lot_size,instrument_type,segment,exchange
+800001,58875,FAKEA26DECFUT,FAKEA,0,2026-12-29,0,0.1,500,FUT,NFO-FUT,NFO
+800002,58876,FAKEA27JANFUT,FAKEA,0,2027-01-25,0,0.1,500,FUT,NFO-FUT,NFO
+800003,58877,FAKEA26DEC100CE,FAKEA,0,2026-12-29,100,0.05,500,CE,NFO-OPT,NFO

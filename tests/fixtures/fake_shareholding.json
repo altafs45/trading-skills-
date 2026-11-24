@@ -1,0 +1,17 @@
+[
+ {
+  "name": "Fake Alpha Limited",
+  "date": "30-SEP-2026",
+  "pr_and_prgrp": "60.10",
+  "public_val": "39.90",
+  "employeeTrusts": "0",
+  "xbrl": "https://example.invalid/x.xml"
+ },
+ {
+  "name": "Fake Alpha Limited",
+  "date": "30-JUN-2026",
+  "pr_and_prgrp": "60.20",
+  "public_val": "39.80",
+  "employeeTrusts": "0"
+ }
+]

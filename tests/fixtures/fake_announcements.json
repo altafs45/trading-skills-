@@ -1,0 +1,14 @@
+[
+ {
+  "an_dt": "18-Nov-2026 22:10:55",
+  "desc": "Credit Rating",
+  "attchmntText": "Fake Alpha informed the Exchange of a FAKE credit rating upgrade",
+  "attchmntFile": "https://example.invalid/f.pdf"
+ },
+ {
+  "an_dt": "10-Nov-2026 10:00:00",
+  "desc": "Updates",
+  "attchmntText": "FAKE update",
+  "attchmntFile": "-"
+ }
+]

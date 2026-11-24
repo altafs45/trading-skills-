@@ -1,0 +1,6 @@
+instrument_token,exchange_token,tradingsymbol,name,last_price,expiry,strike,tick_size,lot_size,instrument_type,segment,exchange
+900001,3516,FAKEA,FAKE ALPHA,0,,0,0.05,1,EQ,NSE,NSE
+900003,3517,FAKEBE-BE,FAKE T2T,0,,0,0.01,1,EQ,NSE,NSE
+900004,3518,FAKESME-SM,FAKE SME CO,0,,0,0.05,1600,EQ,NSE,NSE
+900005,3519,FAKEBOND-N0,FAKE BOND,0,,0,0.01,1,EQ,NSE,NSE
+256265,1001,NIFTY 50,NIFTY 50,0,,0,0,0,EQ,INDICES,NSE

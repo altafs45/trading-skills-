@@ -1,0 +1,14 @@
+{
+ "_note": "SYNTHETIC test data, FAKE",
+ "CM": [
+  {
+   "tradingDate": "24-Nov-2026",
+   "description": "Fake holiday"
+  },
+  {
+   "tradingDate": "25-Dec-2026",
+   "description": "Fake holiday 2"
+  }
+ ],
+ "FO": []
+}

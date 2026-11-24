@@ -1,104 +1,38 @@
 ---
 name: trader-news
 description: >-
-  News Monitor. Tracks breaking news on every stock you watch and flags what
-  moves it: Yahoo Finance headlines per ticker, each company's 8-K filings on
-  SEC EDGAR (earnings, CEO changes, deals, restatements, bankruptcy) and how
-  far each stock is from yesterday's close. Shows only what is new since the
-  last check, newest first, in New York time, tags each item (earnings,
-  analyst, deal, halt, regulatory, macro...) and never repeats one. Use when
-  the user says "any news on TSLA", "why is this moving", "what's the news on
-  my watchlist", "morning briefing", "pre-market news", "monitor the news",
-  "did anything break", "check the 8-Ks", or after /trader-scanner finds setups.
-argument-hint: "[tickers]"
+  News Monitor (NSE). Tracks news for every stock on the watchlist: Google News (India edition) by
+  company name and symbol plus NSE corporate announcements with their PDF links, tagged results /
+  order win / deal / management / regulatory / rating / pledge / block deal, new items only, newest
+  first, in IST, with each stock's move vs the previous close and the day's FII/DII cash flows.
+  Stores titles, source, time and link only. Use when the user says "any news on TCS", "why is this
+  stock moving", "news on my watchlist", "morning briefing", "what did the company announce", "NSE
+  announcements", "FII DII data", or after /trader-scanner.
 ---
-
-# trader-news
-
-A chart can look perfect and still be about to gap on an earnings date, a
-halt or a lawsuit. Before a setup becomes a trade, this skill reads the two
-feeds that carry those first, for every stock on the watchlist, and tells you
-only what is new. It also prints how far each stock has moved today, so a
-headline and a move sit side by side.
-
-Tool in this folder (standard library Python, no keys):
+# News Monitor (NSE)
 
 ```bash
-python3 "${CLAUDE_SKILL_DIR}/news.py"                         # watchlist + plan + portfolio
-python3 "${CLAUDE_SKILL_DIR}/news.py" --tickers TSLA NVDA --hours 12
-python3 "${CLAUDE_SKILL_DIR}/news.py" --no-sec --json
+python3 trader-news/news.py                         # top 10 of trader/watchlist.json, last 2 days, new items only
+python3 trader-news/news.py --symbols TCS,INFY --days 7 --all
 ```
+Flags: `--top N`, `--days N`, `--all` (show already-seen items too), `--no-moves` (skip the quote per stock).
 
-## What it reads and writes
+## What it reads
+- Google News RSS, India edition (`"Company Name" OR "NSE:SYMBOL"`), cached 15 minutes. Headlines only: never open paywalled articles or download images.
+- NSE corporate announcements (subject, first 140 characters, PDF link), cached for the day.
+- NSE quote for the % move, and FII/DII net cash (₹ crore) for the market.
 
-| file / feed | what |
-| --- | --- |
-| `--tickers`, else `trader/watchlist.json` | the scanner's hits (trader-scanner) |
-| `trader/plan.json` | the trade you are planning (trader-exit) |
-| `trader/portfolio.json` | what you hold (trader-broker records fills there) |
-| Yahoo Finance headline RSS | `https://feeds.finance.yahoo.com/rss/2.0/headline?s=TSLA&region=US&lang=en-US` |
-| Yahoo Finance chart endpoint | the last price against yesterday's close (unofficial, can lag) |
-| SEC EDGAR company Atom feed | 8-K by default (`--forms 8-K,10-Q` for more); needs `sec_user_agent` in `trader/config.json` or `SEC_USER_AGENT`, else filings are skipped with a note |
-| `trader/state/news.json` | what has been shown (kept 30 days) and each ticker's CIK |
+## How to report
+Lead with items tagged results, deal, regulatory, rating, pledge or block deal; then the rest briefly. Give the time (IST), the source and the link. A tag is a keyword match, so say "tagged as", not "this is". If a stock is moving with no news, say that plainly.
 
-## The rules
+## Rules for Claude
+- Run the script and read its printed summary. Do not open the JSON files unless the user asks for a detail that is not in the summary.
+- Quote numbers exactly as printed, with their source and time. If a line says `source failed`, say which source and carry on with the rest. Never fill a gap with a guess.
+- Every nseindia.com endpoint is unofficial: if a script stops with `fields found: ...`, report that line; do not guess the new field names.
+- Never place, modify or cancel an order, by any API, plugin or connector. The user places orders in their own broker app.
+- Data source: Kite (Zerodha) by default. Scripts use it when today's token exists, else fall back to NSE/Yahoo (delayed) and say so. If a script says the Kite token expired, ask the user to run `python3 lib/kite_login.py` themselves in a terminal. Never ask for, print or store Kite keys, secrets, request tokens or access tokens in chat.
+- If the claude.ai Kite connector is connected, you may use its read-only market-data tools (quotes, LTP, OHLC, historical candles, instrument search) to cross-check prices, and holdings or positions only when the user asks. Never call its order or GTT tools (place, modify, cancel).
+- Talk about scenarios and historical frequencies, never "it will go up", never buy/sell advice. End with: not financial advice.
+- Scripts live next to this file; shared code is in `../lib/`. Run them from the user's project folder (data goes to `trader/`). Python 3.8+, no installs.
 
-- **Headlines are leads, not facts.** Before telling the user something
-  happened, open the story or the filing and read it. Quote the source and
-  link it. Never summarise a paywalled story you could not read: say so.
-- **Filings beat headlines.** If an 8-K and a headline disagree, the 8-K is
-  what the company told the SEC.
-- **Say what it touches.** Every item lists the tickers it touches and its
-  tags: earnings, analyst, legal, deal, capital, people, risk, halt,
-  regulatory, macro. Filings marked `!` carry an important 8-K item: earnings
-  results (2.02), an officer change (5.02), an impairment (2.06), a delisting
-  notice (3.01), past financials no longer reliable (4.02), bankruptcy (1.03)
-  or a cyber incident (1.05).
-- **MOVING** marks a stock 3 % or more from yesterday's close (`--move-pct`).
-  A move with no headline is worth saying out loud too.
-- **No predictions.** Report what was published and how far the price is from
-  yesterday's close. Never say what the stock will do next.
-
-## Steps
-
-1. Run the check: `python3 "${CLAUDE_SKILL_DIR}/news.py"`. Exit code 1 means
-   nothing new. `--all` shows items already seen, `--json` gives everything
-   machine readable, `--dry-run` leaves the state alone.
-2. Read the items that matter: every `!` filing, anything tagged earnings,
-   halt, legal, regulatory or risk, and every MOVING ticker first.
-3. Write a short brief, per ticker: what happened, the source and link, the
-   move, and one line on why it matters to the setup (for example "earnings
-   are this week: an overnight gap can jump past any stop").
-4. If a story changes the picture, say so before `/trader-entry` and
-   `/trader-exit`: an earnings date inside the trade, a halt, an offering.
-   Never act on a headline alone.
-
-During the session: `/loop 15m /trader-news`, or a scheduled task each
-morning before the open.
-
-## Example: the reel
-
-Monday 2026-10-19, TSLA broke its opening range at 10:15 AM ET. The check at
-10:15 (Yahoo Finance's TSLA feed, 16 headlines since 8:00) leads with the
-morning's real stories: "Meta and Musk earnings and September pending home
-sales: What to Watch" (8:00, earnings), "Tesla-SpaceX Merger Mania Strikes
-Wall Street Ahead of Earnings" (8:04, earnings, deal), "Tech Stock Rebound
-Nudges US Equity Futures Mostly Higher Pre-Bell" (8:02, macro). The brief:
-"Tesla reports this week, so the stock can gap overnight; today's trade is
-in and out before the close. No new 8-K." At 10:52 the price line reads
-`TSLA 366.48 +3.31% vs yesterday's close 354.72 at 10:52 ET  MOVING`. When a
-ticker has no news, say so rather than padding the brief.
-
-## What it never does
-
-- Never invents or embellishes a story, a quote or a number.
-- Never trades on news, and never tells the user to buy or sell because of a
-  headline.
-- Never hammers a server: one request per feed per ticker, a pause between
-  calls, and SEC's 10 requests a second limit stays far away.
-
-## Safety
-
-Education and tooling, not financial advice. This skill only reads and
-reports. Nothing places an order except `/trader-broker`, after
-`/trader-risk` passes and the user types an explicit yes for that order.
+Not financial advice: these tools read public data and do arithmetic. Most day traders lose money.
